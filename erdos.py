@@ -13,13 +13,13 @@ class Autor(object):
         
     def estabelecer_coautoria_com(self, autores):
         self.coautores.update(autores - set([self]))
-        min(autores).perfilhar_cada_um_dos(autores)
+        min(autores)._perfilhar_cada_um_dos(autores)
         
-    def perfilhar_cada_um_dos(self, autores):
+    def _perfilhar_cada_um_dos(self, autores):
         for autor in autores:
             if self < autor:
                 autor.numero_de_erdos = self.numero_de_erdos + 1
-                autor.perfilhar_cada_um_dos(autor.coautores)
+                autor._perfilhar_cada_um_dos(autor.coautores)
                     
 class NumeroDeErdos(dict):
     def __init__(self, livros):
