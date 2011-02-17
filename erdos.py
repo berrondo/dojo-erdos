@@ -1,6 +1,6 @@
 INFINITO = 9999   # um numero bem grande...
 
-class No(object):
+class Autor(object):
     def __init__(self, nome, numero):
         self.nome = nome
         self.numero_de_erdos = numero
@@ -38,7 +38,7 @@ class No(object):
                     
 class NumeroDeErdos(dict):
     def __init__(self, livros):
-        self['Erdos'] = No('Erdos', 0)
+        self['Erdos'] = Autor('Erdos', 0)
         self.incluir_livros(livros)
         
     def __call__(self, nome): return self[nome]
@@ -46,7 +46,7 @@ class NumeroDeErdos(dict):
     def incluir_livros(self, livros):
         for livro in livros:
             # autores de cada livro viram nos e chaves no dict...
-            nos = list(map(lambda x: self.get(x, No(x, INFINITO)), livro))
+            nos = list(map(lambda x: self.get(x, Autor(x, INFINITO)), livro))
                 
             # depois sao relacionados atraves da coautoria:
             for no in nos:
