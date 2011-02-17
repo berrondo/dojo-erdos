@@ -45,13 +45,9 @@ class NumeroDeErdos(dict):
                 self[autor.nome] = autor
                 autor.estabelecer_coautoria_com(autores)
                 
-                
             # e paternidade, apenas para relacionados com Erdos:
-            no_menor = min(autores)
-            if no_menor.numero_de_erdos != INFINITO:
-                no_menor.perfilhar_nos_em(autores)
-                 
-                
+            min(autores).perfilhar_nos_em(autores)
+               
         # e eh preciso reequilibrar a arvore:
         for n_vezes in range(len(livros) - 1):  ## soh isto aqui nao estah legal...
             self.reequilibrar_se()
