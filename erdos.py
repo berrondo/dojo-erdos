@@ -46,14 +46,11 @@ class NumeroDeErdos(dict):
     def incluir_livros(self, livros):
         for livro in livros:
             # autores de cada livro viram nos e chaves no dict...
-            nos = []
-            for nome_do_autor in livro:
-                no = self[nome_do_autor] = self.get(nome_do_autor, 
-                                                    No(nome_do_autor, INFINITO))
-                nos.append(no)
+            nos = list(map(lambda x: self.get(x, No(x, INFINITO)), livro))
                 
             # depois sao relacionados atraves da coautoria:
             for no in nos:
+                self[no.nome] = no
                 no.coautoria(nos)
                 
         # e eh preciso reequilibrar a arvore:
