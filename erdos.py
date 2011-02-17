@@ -21,7 +21,7 @@ class Autor(object):
                 autor.numero_de_erdos = self.numero_de_erdos + 1
                 autor._perfilhar_cada_um_dos(autor.coautores)
                     
-class NumeroDeErdos(dict):
+class CoautoresDeErdos(dict):
     def __init__(self, livros):
         self['Erdos'] = Autor('Erdos', 0)
         self.incluir_autores_de(livros)
