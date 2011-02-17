@@ -21,7 +21,7 @@ class Autor(object):
         for autor in autores:
             if self < autor:
                 # ao ser perfilhado, noh ganha numero do perfilhador, se menor...
-                autor.numero_de_erdos = min(autor.numero_de_erdos, self.numero_de_erdos + 1)
+                autor.numero_de_erdos = self.numero_de_erdos + 1
                 # e tem que perfilhar seus coautores:
                 autor.perfilhar_nos_em(autor.coautores)
                     
