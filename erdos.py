@@ -44,7 +44,7 @@ class NumeroDeErdos(dict):
     def incluir_livros(self, livros):
         for livro in livros:
             # autores de cada livro viram nos e chaves no dict...
-            autores = set(map(lambda x: self.get(x, Autor(x, INFINITO)), livro))
+            autores = set(map(lambda nome: self.get(nome, Autor(nome, INFINITO)), livro))
                 
             # depois sao relacionados atraves da coautoria:
             for autor in autores:
