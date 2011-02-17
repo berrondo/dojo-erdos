@@ -20,9 +20,7 @@ class Autor(object):
     def perfilhar_cada_um_dos(self, autores):
         for autor in autores:
             if self < autor:
-                # ao ser perfilhado, noh ganha numero do perfilhador, se menor...
                 autor.numero_de_erdos = self.numero_de_erdos + 1
-                # e tem que perfilhar seus coautores:
                 autor.perfilhar_cada_um_dos(autor.coautores)
                     
 class NumeroDeErdos(dict):
