@@ -4,7 +4,7 @@ class No(object):
     def __init__(self, nome, nos_pais, numero):
         self.nome = nome
         self.nos_pais = nos_pais
-        self._numero_de_erdos = numero
+        self.numero_de_erdos = numero
         self.coautores = set()
         self.deve_perfilhar_coautores = False
         
@@ -32,18 +32,12 @@ class No(object):
                 try:
                     no.nos_pais.add(self)
                     # ao ser perfilhado, noh ganha numero do perfilhador, se menor...
-                    no._numero_de_erdos = min(no._numero_de_erdos, self.numero_de_erdos + 1)
+                    no.numero_de_erdos = min(no.numero_de_erdos, self.numero_de_erdos + 1)
                     # e tem que perfilhar seus coautores:
                     no.deve_perfilhar_coautores = True
                 except AttributeError:
                     pass
                     
-    @property
-    def numero_de_erdos(self):
-        if self._numero_de_erdos is None:
-            self._numero_de_erdos = min(list(self.nos_pais)).numero_de_erdos + 1
-        return self._numero_de_erdos
-        
 class NumeroDeErdos(dict):
     def __init__(self, livros):
         self['Erdos'] = No('Erdos', None, 0)
