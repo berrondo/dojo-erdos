@@ -15,14 +15,8 @@ class Autor(object):
         else: return -1
         
     def estabelecer_coautoria_com(self, autores):
-        # coautoria...
         self.coautores.update(autores - set([self]))
         
-        # e paternidade, apenas para relacionados com Erdos:
-        no_menor = min(autores)
-        if no_menor.numero_de_erdos != INFINITO:
-            no_menor.perfilhar_nos_em(autores)
-             
     def perfilhar_nos_em(self, autores):
         for autor in autores:
             if autor.nome != self.nome and self.numero_de_erdos != INFINITO:
@@ -50,6 +44,13 @@ class NumeroDeErdos(dict):
             for autor in autores:
                 self[autor.nome] = autor
                 autor.estabelecer_coautoria_com(autores)
+                
+                
+            # e paternidade, apenas para relacionados com Erdos:
+            no_menor = min(autores)
+            if no_menor.numero_de_erdos != INFINITO:
+                no_menor.perfilhar_nos_em(autores)
+                 
                 
         # e eh preciso reequilibrar a arvore:
         for n_vezes in range(len(livros) - 1):  ## soh isto aqui nao estah legal...
