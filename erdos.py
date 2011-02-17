@@ -46,7 +46,7 @@ class No(object):
         
 class NumeroDeErdos(dict):
     def __init__(self, livros):
-        self['Erdos'] = self.no_central = No('Erdos', None, 0)
+        self['Erdos'] = No('Erdos', None, 0)
         self.incluir_livros(livros)
         
     def __call__(self, nome): return self[nome]

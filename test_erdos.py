@@ -6,24 +6,24 @@ class TesteNumeroDeErdos(unittest.TestCase):
     def test_erdos_tem_zero_coautor(self):
         livros = [['Erdos']]
         numeroDeErdos = NumeroDeErdos(livros)
-        self.assertEqual(0, len(numeroDeErdos.no_central.coautores))
+        self.assertEqual(0, len(numeroDeErdos['Erdos'].coautores))
 
     def test_erdos_tem_um_coautor(self):
         livros = [['Erdos', 'Silva']]
         numeroDeErdos = NumeroDeErdos(livros)
         self.assertEqual('Silva', numeroDeErdos['Silva'].nome)
-        self.assertEqual(1, len(numeroDeErdos.no_central.coautores))
+        self.assertEqual(1, len(numeroDeErdos['Erdos'].coautores))
         
     def test_erdos_tem_dois_coautores(self):
         livros = [['Erdos', 'Silva', 'Santos']]
         numeroDeErdos = NumeroDeErdos(livros)
-        self.assertEqual(2, len(numeroDeErdos.no_central.coautores))
+        self.assertEqual(2, len(numeroDeErdos['Erdos'].coautores))
         
     def test_erdos_e_silva_tem_cada_um_um_coautor(self):
         livros = [['Erdos', 'Souza'],
                   ['Silva', 'Santos']]
         numeroDeErdos = NumeroDeErdos(livros)
-        self.assertEqual(1, len(numeroDeErdos.no_central.coautores))
+        self.assertEqual(1, len(numeroDeErdos['Erdos'].coautores))
         self.assertEqual(1, len(numeroDeErdos['Silva'].coautores), numeroDeErdos['Silva'].coautores)
         
 class TesteErdos(unittest.TestCase):
