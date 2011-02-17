@@ -172,13 +172,13 @@ class TestesComFlavio(unittest.TestCase):
         livros = [['Zé', 'Mané'],
                   ['Erdos']]
         erdos = NumeroDeErdos(livros)
-        self.assertEqual(erdos.numero_do('Mané'), INFINITO)
+        self.assertEqual(erdos['Mané'].numero_de_erdos, INFINITO)
 
     def test_coautor_de_erdos_eh_1(self):
         livros = [['Erdos', 'Berrondo']]
         erdos = NumeroDeErdos(livros)
-        self.assertEqual(erdos.numero_do('Erdos'), 0)
-        self.assertEqual(erdos.numero_do('Berrondo'), 1)
+        self.assertEqual(erdos['Erdos'].numero_de_erdos, 0)
+        self.assertEqual(erdos['Berrondo'].numero_de_erdos, 1)
 
     def test_coautor_de_Berrondo_eh_2(self):
         livros = [
@@ -186,9 +186,9 @@ class TestesComFlavio(unittest.TestCase):
             ['Berrondo', 'Flávio'],
         ]
         erdos = NumeroDeErdos(livros)
-        self.assertEqual(erdos.numero_do('Erdos'), 0)
-        self.assertEqual(erdos.numero_do('Berrondo'), 1)
-        self.assertEqual(erdos.numero_do('Flávio'), 2)
+        self.assertEqual(erdos['Erdos'].numero_de_erdos, 0)
+        self.assertEqual(erdos['Berrondo'].numero_de_erdos, 1)
+        self.assertEqual(erdos['Flávio'].numero_de_erdos, 2)
 
     def test_coautor_de_Berrondo_eh_2_independente_da_ordem(self):
         livros = [
@@ -196,9 +196,9 @@ class TestesComFlavio(unittest.TestCase):
             ['Erdos', 'Berrondo'],
         ]
         erdos = NumeroDeErdos(livros)
-        self.assertEqual(erdos.numero_do('Erdos'), 0)
-        self.assertEqual(erdos.numero_do('Berrondo'), 1)
-        self.assertEqual(erdos.numero_do('Flávio'), 2)
+        self.assertEqual(erdos['Erdos'].numero_de_erdos, 0)
+        self.assertEqual(erdos['Berrondo'].numero_de_erdos, 1)
+        self.assertEqual(erdos['Flávio'].numero_de_erdos, 2)
 
     def teste_alguem_de_fora_escreve_com_alguem_de_dentro(self):
         livros = [
@@ -209,23 +209,23 @@ class TestesComFlavio(unittest.TestCase):
             ['Erdos', 'Berrondo'],
         ]
         erdos = NumeroDeErdos(livros)
-        self.assertEqual(erdos.numero_do('Erdos'), 0)
-        self.assertEqual(erdos.numero_do('Berrondo'), 1)
-        self.assertEqual(erdos.numero_do('Flávio'), 2)
-        self.assertEqual(erdos.numero_do('A'), INFINITO)
-        self.assertEqual(erdos.numero_do('B'), INFINITO)
-        self.assertEqual(erdos.numero_do('C'), INFINITO)
-        self.assertEqual(erdos.numero_do('D'), INFINITO)
+        self.assertEqual(erdos['Erdos'].numero_de_erdos, 0)
+        self.assertEqual(erdos['Berrondo'].numero_de_erdos, 1)
+        self.assertEqual(erdos['Flávio'].numero_de_erdos, 2)
+        self.assertEqual(erdos['A'].numero_de_erdos, INFINITO)
+        self.assertEqual(erdos['B'].numero_de_erdos, INFINITO)
+        self.assertEqual(erdos['C'].numero_de_erdos, INFINITO)
+        self.assertEqual(erdos['D'].numero_de_erdos, INFINITO)
 
         novos_livros = [['B', 'Flávio']]
         erdos.incluir_autores_de(novos_livros)
-        self.assertEqual(erdos.numero_do('Erdos'), 0)
-        self.assertEqual(erdos.numero_do('Berrondo'), 1)
-        self.assertEqual(erdos.numero_do('Flávio'), 2)
-        self.assertEqual(erdos.numero_do('A'), 4)
-        self.assertEqual(erdos.numero_do('B'), 3)
-        self.assertEqual(erdos.numero_do('C'), 4)
-        self.assertEqual(erdos.numero_do('D'), 5)
+        self.assertEqual(erdos['Erdos'].numero_de_erdos, 0)
+        self.assertEqual(erdos['Berrondo'].numero_de_erdos, 1)
+        self.assertEqual(erdos['Flávio'].numero_de_erdos, 2)
+        self.assertEqual(erdos['A'].numero_de_erdos, 4)
+        self.assertEqual(erdos['B'].numero_de_erdos, 3)
+        self.assertEqual(erdos['C'].numero_de_erdos, 4)
+        self.assertEqual(erdos['D'].numero_de_erdos, 5)
 
     def teste_promocao_intermediaria(self):
         livros = [
@@ -235,19 +235,19 @@ class TestesComFlavio(unittest.TestCase):
             ['Magdalena', 'Luiza'],
         ]
         erdos = NumeroDeErdos(livros)
-        self.assertEqual(erdos.numero_do('Erdos'), 0)
-        self.assertEqual(erdos.numero_do('Berrondo'), 1)
-        self.assertEqual(erdos.numero_do('Flávio'), 2)
-        self.assertEqual(erdos.numero_do('Magdalena'), 3)
-        self.assertEqual(erdos.numero_do('Luiza'), 4)
+        self.assertEqual(erdos['Erdos'].numero_de_erdos, 0)
+        self.assertEqual(erdos['Berrondo'].numero_de_erdos, 1)
+        self.assertEqual(erdos['Flávio'].numero_de_erdos, 2)
+        self.assertEqual(erdos['Magdalena'].numero_de_erdos, 3)
+        self.assertEqual(erdos['Luiza'].numero_de_erdos, 4)
 
         novos_livros = [['Erdos', 'Luiza']]
         erdos.incluir_autores_de(novos_livros)
-        self.assertEqual(erdos.numero_do('Erdos'), 0)
-        self.assertEqual(erdos.numero_do('Berrondo'), 1)
-        self.assertEqual(erdos.numero_do('Flávio'), 2)
-        self.assertEqual(erdos.numero_do('Magdalena'), 2)
-        self.assertEqual(erdos.numero_do('Luiza'), 1)
+        self.assertEqual(erdos['Erdos'].numero_de_erdos, 0)
+        self.assertEqual(erdos['Berrondo'].numero_de_erdos, 1)
+        self.assertEqual(erdos['Flávio'].numero_de_erdos, 2)
+        self.assertEqual(erdos['Magdalena'].numero_de_erdos, 2)
+        self.assertEqual(erdos['Luiza'].numero_de_erdos, 1)
 
     def teste_boladao(self):
         livros = [
@@ -261,51 +261,51 @@ class TestesComFlavio(unittest.TestCase):
             ['7', '8'],
         ]
         erdos = NumeroDeErdos(livros)
-        self.assertEqual(erdos.numero_do('Erdos'), 0)
-        self.assertEqual(erdos.numero_do('1'), 1)
-        self.assertEqual(erdos.numero_do('2'), 2)
-        self.assertEqual(erdos.numero_do('3'), 3)
-        self.assertEqual(erdos.numero_do('4'), 4)
-        self.assertEqual(erdos.numero_do('5'), 5)
-        self.assertEqual(erdos.numero_do('6'), 6)
-        self.assertEqual(erdos.numero_do('7'), 7)
-        self.assertEqual(erdos.numero_do('8'), 8)
+        self.assertEqual(erdos['Erdos'].numero_de_erdos, 0)
+        self.assertEqual(erdos['1'].numero_de_erdos, 1)
+        self.assertEqual(erdos['2'].numero_de_erdos, 2)
+        self.assertEqual(erdos['3'].numero_de_erdos, 3)
+        self.assertEqual(erdos['4'].numero_de_erdos, 4)
+        self.assertEqual(erdos['5'].numero_de_erdos, 5)
+        self.assertEqual(erdos['6'].numero_de_erdos, 6)
+        self.assertEqual(erdos['7'].numero_de_erdos, 7)
+        self.assertEqual(erdos['8'].numero_de_erdos, 8)
 
         novos_livros = [['2', '5']]
         erdos.incluir_autores_de(novos_livros)
-        self.assertEqual(erdos.numero_do('Erdos'), 0)
-        self.assertEqual(erdos.numero_do('1'), 1)
-        self.assertEqual(erdos.numero_do('2'), 2)
-        self.assertEqual(erdos.numero_do('3'), 3)
-        self.assertEqual(erdos.numero_do('4'), 4)
-        self.assertEqual(erdos.numero_do('5'), 3)
-        self.assertEqual(erdos.numero_do('6'), 4)
-        self.assertEqual(erdos.numero_do('7'), 5)
-        self.assertEqual(erdos.numero_do('8'), 6)
+        self.assertEqual(erdos['Erdos'].numero_de_erdos, 0)
+        self.assertEqual(erdos['1'].numero_de_erdos, 1)
+        self.assertEqual(erdos['2'].numero_de_erdos, 2)
+        self.assertEqual(erdos['3'].numero_de_erdos, 3)
+        self.assertEqual(erdos['4'].numero_de_erdos, 4)
+        self.assertEqual(erdos['5'].numero_de_erdos, 3)
+        self.assertEqual(erdos['6'].numero_de_erdos, 4)
+        self.assertEqual(erdos['7'].numero_de_erdos, 5)
+        self.assertEqual(erdos['8'].numero_de_erdos, 6)
 
         novissimos_livros = [['Erdos', '4']]
         erdos.incluir_autores_de(novissimos_livros)
-        self.assertEqual(erdos.numero_do('Erdos'), 0)
-        self.assertEqual(erdos.numero_do('1'), 1)
-        self.assertEqual(erdos.numero_do('2'), 2)
-        self.assertEqual(erdos.numero_do('3'), 2)
-        self.assertEqual(erdos.numero_do('4'), 1)
-        self.assertEqual(erdos.numero_do('5'), 2)
-        self.assertEqual(erdos.numero_do('6'), 3)
-        self.assertEqual(erdos.numero_do('7'), 4)
-        self.assertEqual(erdos.numero_do('8'), 5)
+        self.assertEqual(erdos['Erdos'].numero_de_erdos, 0)
+        self.assertEqual(erdos['1'].numero_de_erdos, 1)
+        self.assertEqual(erdos['2'].numero_de_erdos, 2)
+        self.assertEqual(erdos['3'].numero_de_erdos, 2)
+        self.assertEqual(erdos['4'].numero_de_erdos, 1)
+        self.assertEqual(erdos['5'].numero_de_erdos, 2)
+        self.assertEqual(erdos['6'].numero_de_erdos, 3)
+        self.assertEqual(erdos['7'].numero_de_erdos, 4)
+        self.assertEqual(erdos['8'].numero_de_erdos, 5)
 
         livros_mais_novos_ainda = [['3', '5', '8']]
         erdos.incluir_autores_de(livros_mais_novos_ainda)
-        self.assertEqual(erdos.numero_do('Erdos'), 0)
-        self.assertEqual(erdos.numero_do('1'), 1)
-        self.assertEqual(erdos.numero_do('2'), 2)
-        self.assertEqual(erdos.numero_do('3'), 2)
-        self.assertEqual(erdos.numero_do('4'), 1)
-        self.assertEqual(erdos.numero_do('5'), 2)
-        self.assertEqual(erdos.numero_do('6'), 3)
-        self.assertEqual(erdos.numero_do('7'), 4)
-        self.assertEqual(erdos.numero_do('8'), 3)
+        self.assertEqual(erdos['Erdos'].numero_de_erdos, 0)
+        self.assertEqual(erdos['1'].numero_de_erdos, 1)
+        self.assertEqual(erdos['2'].numero_de_erdos, 2)
+        self.assertEqual(erdos['3'].numero_de_erdos, 2)
+        self.assertEqual(erdos['4'].numero_de_erdos, 1)
+        self.assertEqual(erdos['5'].numero_de_erdos, 2)
+        self.assertEqual(erdos['6'].numero_de_erdos, 3)
+        self.assertEqual(erdos['7'].numero_de_erdos, 4)
+        self.assertEqual(erdos['8'].numero_de_erdos, 3)
 
 
         

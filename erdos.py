@@ -26,8 +26,6 @@ class NumeroDeErdos(dict):
         self['Erdos'] = Autor('Erdos', 0)
         self.incluir_autores_de(livros)
 
-    def numero_do(self, nome): return self[nome].numero_de_erdos
-        
     def incluir_autores_de(self, livros):
         for livro in livros:
             autores = set(map(lambda nome: self.get(nome, Autor(nome, INFINITO)), livro))
