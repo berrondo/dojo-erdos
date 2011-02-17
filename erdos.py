@@ -14,23 +14,23 @@ class Autor(object):
         elif self.numero_de_erdos > other.numero_de_erdos: return 1
         else: return -1
         
-    def coautoria(self, nos):
+    def coautoria(self, autores):
         # coautoria...
-        self.coautores.update(nos - set([self]))
+        self.coautores.update(autores - set([self]))
         
         # e paternidade, apenas para relacionados com Erdos:
-        no_menor = min(nos)
+        no_menor = min(autores)
         if no_menor.numero_de_erdos != INFINITO:
-            no_menor.perfilhar_nos_em(nos)
+            no_menor.perfilhar_nos_em(autores)
              
-    def perfilhar_nos_em(self, nos):
-        for no in nos:
-            if no.nome != self.nome and self.numero_de_erdos != INFINITO:
+    def perfilhar_nos_em(self, autores):
+        for autor in autores:
+            if autor.nome != self.nome and self.numero_de_erdos != INFINITO:
                 try:
                     # ao ser perfilhado, noh ganha numero do perfilhador, se menor...
-                    no.numero_de_erdos = min(no.numero_de_erdos, self.numero_de_erdos + 1)
+                    autor.numero_de_erdos = min(autor.numero_de_erdos, self.numero_de_erdos + 1)
                     # e tem que perfilhar seus coautores:
-                    no.deve_perfilhar_coautores = True
+                    autor.deve_perfilhar_coautores = True
                 except AttributeError:
                     pass
                     
@@ -44,19 +44,19 @@ class NumeroDeErdos(dict):
     def incluir_livros(self, livros):
         for livro in livros:
             # autores de cada livro viram nos e chaves no dict...
-            nos = set(map(lambda x: self.get(x, Autor(x, INFINITO)), livro))
+            autores = set(map(lambda x: self.get(x, Autor(x, INFINITO)), livro))
                 
             # depois sao relacionados atraves da coautoria:
-            for no in nos:
-                self[no.nome] = no
-                no.coautoria(nos)
+            for autor in autores:
+                self[autor.nome] = autor
+                autor.coautoria(autores)
                 
         # e eh preciso reequilibrar a arvore:
         for n_vezes in range(len(livros) - 1):  ## soh isto aqui nao estah legal...
             self.reequilibrar_se()
             
     def reequilibrar_se(self):
-        for no in self.values():
-            if no.deve_perfilhar_coautores:
-                no.perfilhar_nos_em(no.coautores)
-                no.deve_perfilhar_coautores = False
+        for autor in self.values():
+            if autor.deve_perfilhar_coautores:
+                autor.perfilhar_nos_em(autor.coautores)
+                autor.deve_perfilhar_coautores = False
