@@ -23,7 +23,7 @@ class Autor(object):
                 # ao ser perfilhado, noh ganha numero do perfilhador, se menor...
                 autor.numero_de_erdos = min(autor.numero_de_erdos, self.numero_de_erdos + 1)
                 # e tem que perfilhar seus coautores:
-                autor.deve_perfilhar_coautores = True
+                autor.perfilhar_nos_em(autor.coautores)
                     
 class NumeroDeErdos(dict):
     def __init__(self, livros):
@@ -44,13 +44,4 @@ class NumeroDeErdos(dict):
                 
             # e paternidade, apenas para relacionados com Erdos:
             min(autores).perfilhar_nos_em(autores)
-               
-        # e eh preciso reequilibrar a arvore:
-        for n_vezes in range(len(livros) - 1):  ## soh isto aqui nao estah legal...
-            self.reequilibrar_se()
-            
-    def reequilibrar_se(self):
-        for autor in self.values():
-            if autor.deve_perfilhar_coautores:
-                autor.perfilhar_nos_em(autor.coautores)
-                autor.deve_perfilhar_coautores = False
+        
