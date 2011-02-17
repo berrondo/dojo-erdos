@@ -16,9 +16,7 @@ class Autor(object):
         
     def coautoria(self, nos):
         # coautoria...
-        for no in nos:
-            if no.nome != self.nome:
-                self.coautores.add(no)
+        self.coautores.update(nos - set([self]))
         
         # e paternidade, apenas para relacionados com Erdos:
         no_menor = min(nos)
@@ -46,7 +44,7 @@ class NumeroDeErdos(dict):
     def incluir_livros(self, livros):
         for livro in livros:
             # autores de cada livro viram nos e chaves no dict...
-            nos = list(map(lambda x: self.get(x, Autor(x, INFINITO)), livro))
+            nos = set(map(lambda x: self.get(x, Autor(x, INFINITO)), livro))
                 
             # depois sao relacionados atraves da coautoria:
             for no in nos:
