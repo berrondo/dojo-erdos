@@ -32,7 +32,7 @@ class TesteErdos(unittest.TestCase):
     def test_numero_de_erdos_no_para_erdos_eh_zero(self):
         livros = [['Erdos']]
         numeroDeErdos = NumeroDeErdos(livros)
-        self.assertEqual(0, numeroDeErdos['Erdos']())
+        self.assertEqual(0, numeroDeErdos['Erdos'].numero_de_erdos)
         
     def test_numero_de_erdos_de_autores_sem_relacao_com_erdos_eh_INFINITO(self):
         livros = [
@@ -40,17 +40,17 @@ class TesteErdos(unittest.TestCase):
                   ['Erdos'],
                  ]
         numeroDeErdos = NumeroDeErdos(livros)
-        self.assertEqual(0, numeroDeErdos['Erdos']())
-        self.assertEqual(INFINITO, numeroDeErdos['Silva']())
-        self.assertEqual(INFINITO, numeroDeErdos['Santos']())
+        self.assertEqual(0, numeroDeErdos['Erdos'].numero_de_erdos)
+        self.assertEqual(INFINITO, numeroDeErdos['Silva'].numero_de_erdos)
+        self.assertEqual(INFINITO, numeroDeErdos['Santos'].numero_de_erdos)
         
     def test_numero_de_erdos_de_co_autores_de_erdos_eh_um(self):
         livros = [['Erdos', 'Silva', 'Santos']]
         nerdos = [[0, 1, 1]]
         numeroDeErdos = NumeroDeErdos(livros)
-        self.assertEqual(0, numeroDeErdos['Erdos']())
-        self.assertEqual(1, numeroDeErdos['Silva'](), numeroDeErdos)
-        self.assertEqual(1, numeroDeErdos['Santos']())
+        self.assertEqual(0, numeroDeErdos['Erdos'].numero_de_erdos)
+        self.assertEqual(1, numeroDeErdos['Silva'].numero_de_erdos, numeroDeErdos)
+        self.assertEqual(1, numeroDeErdos['Santos'].numero_de_erdos)
         
     def test_numero_de_erdos_de_tres_autores_em_cascata(self):
         livros = [
@@ -58,9 +58,9 @@ class TesteErdos(unittest.TestCase):
                   ['Erdos', 'Silva'],
                  ]
         numeroDeErdos = NumeroDeErdos(livros)
-        self.assertEqual(0, numeroDeErdos['Erdos']())
-        self.assertEqual(1, numeroDeErdos['Silva']())
-        self.assertEqual(2, numeroDeErdos['Santos']())
+        self.assertEqual(0, numeroDeErdos['Erdos'].numero_de_erdos)
+        self.assertEqual(1, numeroDeErdos['Silva'].numero_de_erdos)
+        self.assertEqual(2, numeroDeErdos['Santos'].numero_de_erdos)
         
     def test_numero_de_erdos_de_quatro_autores_em_cascata(self):
         livros = [
@@ -69,10 +69,10 @@ class TesteErdos(unittest.TestCase):
                   ['Santos', 'Souza'],
                  ]
         numeroDeErdos = NumeroDeErdos(livros)
-        self.assertEqual(0, numeroDeErdos['Erdos']())
-        self.assertEqual(1, numeroDeErdos['Silva']())
-        self.assertEqual(2, numeroDeErdos['Santos']())
-        self.assertEqual(3, numeroDeErdos['Souza']())
+        self.assertEqual(0, numeroDeErdos['Erdos'].numero_de_erdos)
+        self.assertEqual(1, numeroDeErdos['Silva'].numero_de_erdos)
+        self.assertEqual(2, numeroDeErdos['Santos'].numero_de_erdos)
+        self.assertEqual(3, numeroDeErdos['Souza'].numero_de_erdos)
         
     def test_numero_de_erdos_de_cinco_autores_em_cascata(self):
         livros = [
@@ -86,11 +86,11 @@ class TesteErdos(unittest.TestCase):
                   [2, 3],
                   [3, 4]]
         numeroDeErdos = NumeroDeErdos(livros)
-        self.assertEqual(0, numeroDeErdos['Erdos']())
-        self.assertEqual(1, numeroDeErdos['Silva']())
-        self.assertEqual(2, numeroDeErdos['Santos']())
-        self.assertEqual(3, numeroDeErdos['Souza']())
-        self.assertEqual(4, numeroDeErdos['Souto']())
+        self.assertEqual(0, numeroDeErdos['Erdos'].numero_de_erdos)
+        self.assertEqual(1, numeroDeErdos['Silva'].numero_de_erdos)
+        self.assertEqual(2, numeroDeErdos['Santos'].numero_de_erdos)
+        self.assertEqual(3, numeroDeErdos['Souza'].numero_de_erdos)
+        self.assertEqual(4, numeroDeErdos['Souto'].numero_de_erdos)
         
     def test_numero_de_erdos_de_dois_autores_que_escreveram_dois_livros_c_erdos_eh_um(self):
         livros = [
@@ -98,9 +98,9 @@ class TesteErdos(unittest.TestCase):
                   ['Erdos', 'Santos'],
                  ]
         numeroDeErdos = NumeroDeErdos(livros)
-        self.assertEqual(0, numeroDeErdos['Erdos']())
-        self.assertEqual(1, numeroDeErdos['Silva']())
-        self.assertEqual(1, numeroDeErdos['Santos']())
+        self.assertEqual(0, numeroDeErdos['Erdos'].numero_de_erdos)
+        self.assertEqual(1, numeroDeErdos['Silva'].numero_de_erdos)
+        self.assertEqual(1, numeroDeErdos['Santos'].numero_de_erdos)
         
     def test_numero_de_erdos_de_dois_autores_que_escreveram_com_coautores_de_erdos_eh_dois(self):
         livros = [
@@ -110,11 +110,11 @@ class TesteErdos(unittest.TestCase):
                   ['Erdos', 'Silva'],
                  ]
         numeroDeErdos = NumeroDeErdos(livros)
-        self.assertEqual(0, numeroDeErdos['Erdos']())
-        self.assertEqual(1, numeroDeErdos['Silva']())
-        self.assertEqual(1, numeroDeErdos['Santos']())
-        self.assertEqual(2, numeroDeErdos['Souto']())
-        self.assertEqual(2, numeroDeErdos['Souza']())
+        self.assertEqual(0, numeroDeErdos['Erdos'].numero_de_erdos)
+        self.assertEqual(1, numeroDeErdos['Silva'].numero_de_erdos)
+        self.assertEqual(1, numeroDeErdos['Santos'].numero_de_erdos)
+        self.assertEqual(2, numeroDeErdos['Souto'].numero_de_erdos)
+        self.assertEqual(2, numeroDeErdos['Souza'].numero_de_erdos)
     
     def test_dos_segundos_coautores(self):
         livros = [
@@ -126,13 +126,13 @@ class TesteErdos(unittest.TestCase):
                   ['Erdos', 'Silva'],
                  ]
         numeroDeErdos = NumeroDeErdos(livros)
-        self.assertEqual(0, numeroDeErdos['Erdos']())
-        self.assertEqual(1, numeroDeErdos['Silva']())
-        self.assertEqual(1, numeroDeErdos['Santos']())
-        self.assertEqual(2, numeroDeErdos['Souto']())
-        self.assertEqual(2, numeroDeErdos['Souza']())
-        self.assertEqual(2, numeroDeErdos['Vaz']())
-        self.assertEqual(2, numeroDeErdos['Pereira']())
+        self.assertEqual(0, numeroDeErdos['Erdos'].numero_de_erdos)
+        self.assertEqual(1, numeroDeErdos['Silva'].numero_de_erdos)
+        self.assertEqual(1, numeroDeErdos['Santos'].numero_de_erdos)
+        self.assertEqual(2, numeroDeErdos['Souto'].numero_de_erdos)
+        self.assertEqual(2, numeroDeErdos['Souza'].numero_de_erdos)
+        self.assertEqual(2, numeroDeErdos['Vaz'].numero_de_erdos)
+        self.assertEqual(2, numeroDeErdos['Pereira'].numero_de_erdos)
         
 class TesteErdosComMaisDeUmPai(unittest.TestCase):
     def test(self):
@@ -149,23 +149,23 @@ class TesteErdosComMaisDeUmPai(unittest.TestCase):
                   ['Coutinho', 'Malta', 'Guedes', 'Salviano'],
                  ]
         numeroDeErdos = NumeroDeErdos(livros)
-        self.assertEqual(0, numeroDeErdos['Erdos']())
-        self.assertEqual(1, numeroDeErdos['Silva']())
-        self.assertEqual(1, numeroDeErdos['Santos']())
-        self.assertEqual(2, numeroDeErdos['Souto']())
-        self.assertEqual(2, numeroDeErdos['Caminha']())
+        self.assertEqual(0, numeroDeErdos['Erdos'].numero_de_erdos)
+        self.assertEqual(1, numeroDeErdos['Silva'].numero_de_erdos)
+        self.assertEqual(1, numeroDeErdos['Santos'].numero_de_erdos)
+        self.assertEqual(2, numeroDeErdos['Souto'].numero_de_erdos)
+        self.assertEqual(2, numeroDeErdos['Caminha'].numero_de_erdos)
 
-        self.assertEqual(2, numeroDeErdos['Souza']())
-        self.assertEqual(2, numeroDeErdos['Vaz']())
-        self.assertEqual(2, numeroDeErdos['Pereira']())
-        self.assertEqual(INFINITO, numeroDeErdos['Coutinho']())
-        self.assertEqual(INFINITO, numeroDeErdos['Malta']())
-        self.assertEqual(INFINITO, numeroDeErdos['Guedes']())
-        self.assertEqual(INFINITO, numeroDeErdos['Salviano']())
+        self.assertEqual(2, numeroDeErdos['Souza'].numero_de_erdos)
+        self.assertEqual(2, numeroDeErdos['Vaz'].numero_de_erdos)
+        self.assertEqual(2, numeroDeErdos['Pereira'].numero_de_erdos)
+        self.assertEqual(INFINITO, numeroDeErdos['Coutinho'].numero_de_erdos)
+        self.assertEqual(INFINITO, numeroDeErdos['Malta'].numero_de_erdos)
+        self.assertEqual(INFINITO, numeroDeErdos['Guedes'].numero_de_erdos)
+        self.assertEqual(INFINITO, numeroDeErdos['Salviano'].numero_de_erdos)
         
         numeroDeErdos.incluir_autores_de([['Souto', 'Guedes']])
-        self.assertEqual(2, numeroDeErdos['Souto']())
-        self.assertEqual(3, numeroDeErdos['Guedes']())
+        self.assertEqual(2, numeroDeErdos['Souto'].numero_de_erdos)
+        self.assertEqual(3, numeroDeErdos['Guedes'].numero_de_erdos)
 
 class TestesComFlavio(unittest.TestCase):
     def test_varios_autores_infinitos(self):

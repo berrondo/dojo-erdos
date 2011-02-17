@@ -5,9 +5,7 @@ class Autor(object):
         self.nome = nome
         self.numero_de_erdos = numero
         self.coautores = set()
-        
-    def __call__(self): return self.numero_de_erdos
-    
+
     def __cmp__(self, other):
         if self.numero_de_erdos == other.numero_de_erdos: return 0
         elif self.numero_de_erdos > other.numero_de_erdos: return 1
@@ -28,7 +26,7 @@ class NumeroDeErdos(dict):
         self['Erdos'] = Autor('Erdos', 0)
         self.incluir_autores_de(livros)
 
-    def numero_do(self, nome): return self[nome]()
+    def numero_do(self, nome): return self[nome].numero_de_erdos
         
     def incluir_autores_de(self, livros):
         for livro in livros:
