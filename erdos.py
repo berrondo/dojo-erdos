@@ -15,6 +15,7 @@ class Autor(object):
         
     def estabelecer_coautoria_com(self, autores):
         self.coautores.update(autores - set([self]))
+        min(autores).perfilhar_cada_um_dos(autores)
         
     def perfilhar_cada_um_dos(self, autores):
         for autor in autores:
@@ -34,10 +35,8 @@ class NumeroDeErdos(dict):
     def incluir_autores_de(self, livros):
         for livro in livros:
             autores = set(map(lambda nome: self.get(nome, Autor(nome, INFINITO)), livro))
-                
             for autor in autores:
                 self[autor.nome] = autor
                 autor.estabelecer_coautoria_com(autores)
                 
-            min(autores).perfilhar_cada_um_dos(autores)
         
