@@ -14,7 +14,7 @@ class Autor(object):
         elif self.numero_de_erdos > other.numero_de_erdos: return 1
         else: return -1
         
-    def coautoria(self, autores):
+    def estabelecer_coautoria_com(self, autores):
         # coautoria...
         self.coautores.update(autores - set([self]))
         
@@ -49,7 +49,7 @@ class NumeroDeErdos(dict):
             # depois sao relacionados atraves da coautoria:
             for autor in autores:
                 self[autor.nome] = autor
-                autor.coautoria(autores)
+                autor.estabelecer_coautoria_com(autores)
                 
         # e eh preciso reequilibrar a arvore:
         for n_vezes in range(len(livros) - 1):  ## soh isto aqui nao estah legal...
