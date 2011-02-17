@@ -161,7 +161,7 @@ class TesteErdosComMaisDeUmPai(unittest.TestCase):
         self.assertEqual(INFINITO, numeroDeErdos('Guedes')())
         self.assertEqual(INFINITO, numeroDeErdos('Salviano')())
         
-        numeroDeErdos.incluir_livros([['Souto', 'Guedes']])
+        numeroDeErdos.incluir_autores_de([['Souto', 'Guedes']])
         self.assertEqual(2, numeroDeErdos('Souto')())
         self.assertEqual(3, numeroDeErdos('Guedes')())
 
