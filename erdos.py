@@ -5,7 +5,6 @@ class Autor(object):
         self.nome = nome
         self.numero_de_erdos = numero
         self.coautores = set()
-        self.deve_perfilhar_coautores = False
         
     def __call__(self): return self.numero_de_erdos
     
