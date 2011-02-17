@@ -27,9 +27,7 @@ class NumeroDeErdos(dict):
     def __init__(self, livros):
         self['Erdos'] = Autor('Erdos', 0)
         self.incluir_autores_de(livros)
-        
-    # def __call__(self, nome): return self[nome]
-    
+
     def numero_do(self, nome): return self[nome]()
         
     def incluir_autores_de(self, livros):
