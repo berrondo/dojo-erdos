@@ -19,7 +19,7 @@ class Autor(object):
         
     def perfilhar_nos_em(self, autores):
         for autor in autores:
-            if autor.nome != self.nome and self.numero_de_erdos != INFINITO:
+            if self < autor:
                 # ao ser perfilhado, noh ganha numero do perfilhador, se menor...
                 autor.numero_de_erdos = min(autor.numero_de_erdos, self.numero_de_erdos + 1)
                 # e tem que perfilhar seus coautores:
