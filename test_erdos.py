@@ -46,7 +46,6 @@ class TesteErdos(unittest.TestCase):
         
     def test_numero_de_erdos_de_co_autores_de_erdos_eh_um(self):
         livros = [['Erdos', 'Silva', 'Santos']]
-        nerdos = [[0, 1, 1]]
         coautoresDeErdos = CoautoresDeErdos(livros)
         self.assertEqual(0, coautoresDeErdos['Erdos'].numero_de_erdos)
         self.assertEqual(1, coautoresDeErdos['Silva'].numero_de_erdos, coautoresDeErdos)
@@ -81,11 +80,7 @@ class TesteErdos(unittest.TestCase):
                   ['Erdos', 'Silva'],
                   ['Santos', 'Souza'],
                  ]
-        nerdos = [[0, 1],
-                  [1, 2],
-                  [2, 3],
-                  [3, 4]]
-        coautoresDeErdos = CoautoresDeErdos(livros)
+        CoautoresDeErdos(livros)
         self.assertEqual(0, coautoresDeErdos['Erdos'].numero_de_erdos)
         self.assertEqual(1, coautoresDeErdos['Silva'].numero_de_erdos)
         self.assertEqual(2, coautoresDeErdos['Santos'].numero_de_erdos)
