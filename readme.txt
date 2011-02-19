@@ -1,24 +1,6 @@
-'bout Erdos:
-
-então, quando um desses problemas de dojo te pega?
-
-verdade é que às vezes achamos alguns problemas interessantes, às vezes não e, quando achamos, frequentemente não encontramos o tempo ou a oportunidade para darmos os nossos tratos à bola...
-
-mas, problem-solving-addicts que somos, pode haver um dia em que a cabeça deixada vaga dos problemas do dia-a-dia seja tomada por um daqueles que a gente vê no dojo.
-
-e foi o que aconteceu comigo e com o Número de Erdos, sei lá porque...
-
-tanto que propus três seções de dojo seguidas com o problema e ainda o levei para casa!
-
-e ainda fizemos uma sessão extra, eu e o Flávio Amieiro, para atacar o problema (sei que tem gente aí que queria ter participado dessa sessão...)
-
-tudo começa com a gente discutindo afinal o que são baby-steps, o que é o design orientado pelos testes, como roubar legalmente (!) e onde e quando quebrar as regras.
+Afinal o que são baby-steps, o que é o design orientado pelos testes, como roubar legalmente (!) e onde e quando quebrar as regras?
 
 frequentemente vemos em nossos encontros semanais regras sendo levadas a sério demais e os baby-steps e o salutar hábito de roubar (!) serem vítimas de misconceptions...
-
-disclaimer aqui que um dos motivos da saúde, vitalidade, longevidade e fertilidade do nosso grupo é exatamente seu amor pelas regras! o fato de a turma nunca ter deixado o dojo degenerar. seguir as regras garante um dojo inclusivo para qualquer um que chega, em qualquer momento. e é quem está chegando que vai levar o dojo adiante.
-
-e seguir regras é o que fazemos quando não sabemos: quando a repetição fizer da regra nosso hábito, saberemos quando quebrá-la!
 
 em nossa primeira sessão de dojo com o número de Erdos, terminamos com a impressão de que precisávamos uma árvore. por isso, em uma sessão seguinte, tentei propor aos presentes que, em vez de fugir, como sempre fazemos, do core do problema (porque focamos o processo e não a solução), que em vez disso, atacássemos o problema de constriur uma árvore, baby-steps, orientados por testes e tendo como pano de fundo o problema concreto do Erdos.
 
@@ -56,3 +38,25 @@ assim, o dicionário cuja chave é o nome do autor e o valor o nó-autor é um baby-
 
 
 
+
+
+
+
+
+'bout Erdos:
+
+então, quando um desses problemas de dojo te pega?
+
+verdade é que às vezes achamos alguns problemas interessantes, às vezes não e, quando achamos, frequentemente não encontramos o tempo ou a oportunidade para darmos os nossos tratos à bola...
+
+mas, problem-solving-addicts que somos, pode haver um dia em que a cabeça deixada vaga dos problemas do dia-a-dia seja tomada por um daqueles que a gente vê no dojo.
+
+e foi o que aconteceu comigo e com o Número de Erdos, sei lá porque...
+
+tanto que propus três seções de dojo seguidas com o problema e ainda o levei para casa!
+
+e ainda fizemos uma sessão extra, eu e o Flávio Amieiro, para atacar o problema (sei que tem gente aí que queria ter participado dessa sessão...)
+
+disclaimer aqui que um dos motivos da saúde, vitalidade, longevidade e fertilidade do nosso grupo é exatamente seu amor pelas regras! o fato de a turma nunca ter deixado o dojo degenerar. seguir as regras garante um dojo inclusivo para qualquer um que chega, em qualquer momento. e é quem está chegando que vai levar o dojo adiante.
+
+e seguir regras é o que fazemos quando não sabemos: quando a repetição fizer da regra nosso hábito, saberemos quando quebrá-la!
