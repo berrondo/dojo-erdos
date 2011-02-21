@@ -1,7 +1,7 @@
 INFINITO = 9999   # apenas um numero suficientemente grande...
 
 class Autor(object):
-    def __init__(self, nome, numero):
+    def __init__(self, nome, numero=INFINITO):
         self.nome = nome
         self.numero_de_erdos = numero
         self.coautores = set()
@@ -16,10 +16,10 @@ class Autor(object):
         min(autores)._perfilhar_cada_um_dos(autores)
         
     def _perfilhar_cada_um_dos(self, autores):
-        for autor in autores:
-            if self < autor:
-                autor.numero_de_erdos = self.numero_de_erdos + 1
-                autor._perfilhar_cada_um_dos(autor.coautores)
+        for outro_autor in autores:
+            if outro_autor > self:
+                outro_autor.numero_de_erdos = self.numero_de_erdos + 1
+                outro_autor._perfilhar_cada_um_dos(outro_autor.coautores)
                     
 class CoautoresDeErdos(dict):
     def __init__(self, livros):
@@ -28,7 +28,7 @@ class CoautoresDeErdos(dict):
 
     def incluir_autores_de(self, livros):
         for livro in livros:
-            autores = set((self.get(nome, Autor(nome, INFINITO)) for nome in livro))
+            autores = set((self.get(nome, Autor(nome)) for nome in livro))
             for autor in autores:
                 self[autor.nome] = autor
                 autor.estabelecer_coautoria_com(autores)
