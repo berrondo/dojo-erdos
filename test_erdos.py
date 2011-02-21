@@ -80,7 +80,7 @@ class TesteErdos(unittest.TestCase):
                   ['Erdos', 'Silva'],
                   ['Santos', 'Souza'],
                  ]
-        CoautoresDeErdos(livros)
+        coautoresDeErdos = CoautoresDeErdos(livros)
         self.assertEqual(0, coautoresDeErdos['Erdos'].numero_de_erdos)
         self.assertEqual(1, coautoresDeErdos['Silva'].numero_de_erdos)
         self.assertEqual(2, coautoresDeErdos['Santos'].numero_de_erdos)
